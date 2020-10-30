@@ -22,7 +22,11 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
      *
      */
     private static final long serialVersionUID = 1682690307762671162L;
-    int bx, by, x, y, dx, dy, score = 0,count=0,state; //背景坐标bx,by,英雄机坐标x,y,敌机坐标dx,dy,分数score,计数器count,运行状态state
+    int bx, by; //背景坐标bx,by
+    int x, y; //英雄机坐标x,y
+    int dx, dy; //敌机坐标dx,dy
+    int score = 0,count=0,state; //分数score,计数器count,运行状态state
+    Image st; //开始图
     Image bg; //背景图
     boolean db = false; //敌机爆炸图片绘图开关
     List<Zd> zd = new ArrayList<Zd>(); //存储子弹对象
@@ -39,6 +43,7 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         state=START;
         bx = 0;
         by = -5350;
+        st = new ImageIcon("start.png").getImage();
         bg = new ImageIcon("background.png").getImage();
 
     }
@@ -49,7 +54,8 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         super.paint(g);
         if(state==RUNNING){
             String sc = "分数:" + String.valueOf(score);
-            g.drawImage(bg, bx, by, null); //画出背景
+            g.drawImage(st,bx,by,null);
+            g.drawImage(bg,bx,by, null); //画出背景
             g.drawRoundRect(0, 0, 120, 30, 5, 5); //分数框
             g.setFont(new Font("TimesRoman", Font.BOLD, 24));
             g.setColor(Color.RED);
@@ -119,11 +125,11 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
 
                         // 创建敌机
                         if (count % 21 == 0) {
-                            dj.add(new Dj("src/images/e4.png"));
+                            dj.add(new Dj("src/images/airplane.png"));
                         }else if (count % 31 == 0) {
-                            dj.add(new Dj("src/images/e5.png"));
+                            dj.add(new Dj("src/images/midplane.png"));
                         }else if (count % 41 == 0) {
-                            dj.add(new Dj("src/images/e6.png"));
+                            dj.add(new Dj("src/images/bigplane.png"));
                         }
                         for (int b = 0; b < dj.size(); b++) {
                             dj.get(b).setY(dj.get(b).getY() + 3); //改变敌机坐标，使敌机移动
@@ -184,7 +190,6 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         }else if (state==RUNNING){
             state=PAUSE;;
         }else if(state==OVER){
-
             //重新开始后初始化参数值
             state=RUNNING;
             score=0;
