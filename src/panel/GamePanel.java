@@ -18,9 +18,7 @@ import model.Dj;
 import model.Zd;
 
 public class GamePanel extends JPanel implements MouseMotionListener, MouseListener {
-    /**
-     *
-     */
+
     private static final long serialVersionUID = 1682690307762671162L;
     int bx, by; //背景坐标bx,by
     int x, y; //英雄机坐标x,y
@@ -45,7 +43,6 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         by = -5350;
         st = new ImageIcon("start.png").getImage();
         bg = new ImageIcon("background.png").getImage();
-
     }
 
     //重写paint方法
@@ -199,15 +196,12 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
             by = -5350;
             zd = new ArrayList<Zd>();
             dj = new ArrayList<Dj>();
-
         }
-
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
         // TODO 自动生成的方法存根
-
     }
 
     @Override
@@ -221,19 +215,16 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         // TODO 自动生成的方法存根
 
     }
-
     @Override
     public void mouseExited(MouseEvent e) {
         // TODO 自动生成的方法存根
 
     }
-
     @Override
     public void mouseDragged(MouseEvent e) {
         // TODO 自动生成的方法存根
 
     }
-
     @Override
     public void mouseMoved(MouseEvent e) {
         x = e.getX(); //动态获取鼠标的坐标值

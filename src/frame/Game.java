@@ -4,6 +4,8 @@ import javax.swing.*;
 
 import panel.GamePanel;
 
+import java.awt.*;
+
 public class Game {
 
     public static void main(String[] args) {
@@ -18,6 +20,7 @@ public class Game {
         g.Move(); //调用Move方法
         j.addMouseListener(g); //添加监听器
         j.addMouseMotionListener(g);
+
 
     }
 

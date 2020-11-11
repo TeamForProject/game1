@@ -7,20 +7,16 @@ import javax.swing.ImageIcon;
 
 public class Zd {
     int x, y;
-
     //构造方法
     public Zd(int a, int b) { //参数为英雄机坐标
-
         this.x=a;
         this.y=b;
-
     }
 
     //画子弹
     public void drawZd(Graphics g) {
         Image zd=new ImageIcon("bullet.png").getImage();
         g.drawImage(zd, x-19, y-80, null);
-
     }
 
     //x,y的get和set方法
