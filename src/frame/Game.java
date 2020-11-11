@@ -20,8 +20,6 @@ public class Game {
         g.Move(); //调用Move方法
         j.addMouseListener(g); //添加监听器
         j.addMouseMotionListener(g);
-
-
     }
 
 }

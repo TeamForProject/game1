@@ -18,11 +18,11 @@ public class Dj {
     //画敌机
     public void drawPlane(Graphics g) {
         Image plane1=new ImageIcon("airplane.png").getImage(); //小型机
-        Image plane2=new ImageIcon("midplane.png").getImage(); //中型机
-        Image plane3=new ImageIcon("bigplane.png").getImage(); //大型机
+//        Image plane2=new ImageIcon("midplane.png").getImage(); //中型机
+//        Image plane3=new ImageIcon("bigplane.png").getImage(); //大型机
         g.drawImage(plane1, x-15, y-15, null);
-        g.drawImage(plane2, x-15, y-15, null);
-        g.drawImage(plane3, x-15, y-15, null);
+//        g.drawImage(plane2, x-15, y-15, null);
+//        g.drawImage(plane3, x-15, y-15, null);
 
     }
 

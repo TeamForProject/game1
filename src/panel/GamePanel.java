@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
         bg = new ImageIcon("background.png").getImage();
     }
 
-    //重写paint方法
+    //paint方法
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -53,6 +53,8 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
             String sc = "分数:" + String.valueOf(score);
             g.drawImage(st,bx,by,null);
             g.drawImage(bg,bx,by, null); //画出背景
+            Image start=new ImageIcon("background.png").getImage();
+            g.drawImage(start, 0, 0, 400, 650, null);
             g.drawRoundRect(0, 0, 120, 30, 5, 5); //分数框
             g.setFont(new Font("TimesRoman", Font.BOLD, 24));
             g.setColor(Color.RED);
@@ -77,13 +79,13 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
 
             }
         }else if(state==START){ //开始界面
-            Image start=new ImageIcon("src/images/start.png").getImage();
+            Image start=new ImageIcon("start.png").getImage();
             g.drawImage(start, 0, 0, 400, 650, null);
         }else if(state==OVER){ //结束界面
-            Image over=new ImageIcon("src/images/over.png").getImage();
+            Image over=new ImageIcon("gameover.png").getImage();
             g.drawImage(over, 0, 0, 400, 650, null);
         }else if(state==PAUSE){ //暂停界面
-            Image pause=new ImageIcon("src/images/pause.png").getImage();
+            Image pause=new ImageIcon("pause.png").getImage();
             g.drawImage(pause, 0, 0, 400, 650, null);
         }
 
@@ -184,6 +186,7 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
     public void mouseClicked(MouseEvent e) {
         if(state==START||state==PAUSE){
             state=RUNNING;
+            st = new ImageIcon("start.png").getImage();
         }else if (state==RUNNING){
             state=PAUSE;;
         }else if(state==OVER){
