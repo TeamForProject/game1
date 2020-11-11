@@ -98,18 +98,15 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
             @Override
             public void run() {
                 super.run();
-
                 while (true) {
                     if(state==RUNNING){
-
                         // 背景移动
                         count++;
                         by += 2;
                         if (by > 0) {
                             by = -5350;
-                            bg = new ImageIcon("src/images/background_2.png").getImage();
+                            bg = new ImageIcon("background.png").getImage();
                         }
-
                         // 创建子弹
                         if (count % 3 == 0) {
                             zd.add(new Zd(x, y));
@@ -118,27 +115,22 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
                             zd.get(a).setY(zd.get(a).getY() - 30); //改变子弹坐标，使子弹移动
                             if (zd.get(a).getY() < 0) { //判断子弹越界
                                 zd.remove(a);
-
                             }
                         }
-
                         // 创建敌机
                         if (count % 21 == 0) {
-                            dj.add(new Dj("src/images/airplane.png"));
+                            dj.add(new Dj("airplane.png"));
                         }else if (count % 31 == 0) {
-                            dj.add(new Dj("src/images/midplane.png"));
+                            dj.add(new Dj("midplane.png"));
                         }else if (count % 41 == 0) {
-                            dj.add(new Dj("src/images/bigplane.png"));
+                            dj.add(new Dj("bigplane.png"));
                         }
                         for (int b = 0; b < dj.size(); b++) {
                             dj.get(b).setY(dj.get(b).getY() + 3); //改变敌机坐标，使敌机移动
                             if (dj.get(b).getY() > 650) { //判断敌机越界
                                 state=OVER; //游戏结束
-
                             }
-
                         }
-
                         // 子弹和敌机碰撞
                         Crash crash = new Crash();
                         for (int j = 0; j < zd.size(); j++) {
@@ -146,7 +138,7 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
                             for (int i = 0; i < dj.size(); i++) {
                                 Dj d = dj.get(i);
                                 if (crash.Boom(z, d)) { //调用Crash对象的Boom方法判断是否相撞
-                                    score += 2; //分数加2
+                                    score += 1; //分数加1
                                     dx = dj.get(i).getX(); //敌机坐标
                                     dy = dj.get(i).getY();
                                     db = true; //敌机爆炸
@@ -156,7 +148,6 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
                                 }
                             }
                         }
-
                         //判断飞机相撞
                         for (int i = 0; i < dj.size(); i++) {
                             Dj d = dj.get(i);
@@ -168,8 +159,6 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
                             }
                         }
                     }
-
-
                     repaint(); //重画
                     try {
                         Thread.sleep(20); //线程休眠
@@ -201,18 +190,15 @@ public class GamePanel extends JPanel implements MouseMotionListener, MouseListe
             dj = new ArrayList<Dj>();
         }
     }
-
     @Override
     public void mousePressed(MouseEvent e) {
         // TODO 自动生成的方法存根
     }
-
     @Override
     public void mouseReleased(MouseEvent e) {
         // TODO 自动生成的方法存根
 
     }
-
     @Override
     public void mouseEntered(MouseEvent e) {
         // TODO 自动生成的方法存根
